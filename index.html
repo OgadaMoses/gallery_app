@@ -3,8 +3,17 @@
     <head>
         <title>JavaScript Gallery App</title>
         <meta charset="utf-8">
+        <style>
+        body  {
+            background-color: #6062b3;
+        }
+        </style>
         <script>
-            alert("hello, world!");
+            const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                                   "Thursday", "Friday", "Saturday"];
+            let now = new Date();
+            let dayName = daysOfTheWeek [now.getDay()];                    
+            alert(`Hello, world! Happy ${dayName}.`);
         </script>
     </head>
     <body>

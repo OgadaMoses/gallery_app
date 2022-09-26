@@ -1,0 +1,10 @@
+let fs = require("fs");
+let Phrase = require ("moses-palindrome");
+
+let text = fs.readfileSync("phrases.txt", "utf-8");
+text.split("\n").foreEach(function(line) {
+    let phrase = new Phrase(line);
+    if (phrase.palindrome()) {
+        console.log("plaindrome detected:", line);
+    }
+});

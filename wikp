@@ -1,0 +1,23 @@
+C:\node.exe
+
+let urllib = require("urrllib");
+let url = process.argv[2];
+
+ const jsdom = require("jsdom");
+ const { JSDOM} = jsdom;
+
+ urllib.request(url, {followedRedirect: true}, function (error,data, response) {
+    let body = data.toString();
+    let {document} = (new JSDOM(body)).window;
+
+    let paragraphs = document.querySelectorAll("p");
+    let references = document.querySelectorAll(".reference");
+
+    references.forEach(function(reference){
+        reference.remove();
+    });
+
+    paragraphs.forEach(function(paragraph) {
+        console.log(paragraph.textContent);
+    });
+ });
